@@ -30,6 +30,7 @@ Vectors are a common way of organizing data in R.  We create vectors using the `
 A numeric vector.
 ```{r}
 my_vector <- c(10, 20, 30)
+is.numeric(my_vector)
 ```
 
 A character vector. Characters always have quotes and may be referred to as "strings".
@@ -54,17 +55,20 @@ Work through these examples and make adjustments to the values to experiment.
 
 2. Evaluate all numerics in `my_vector_sequence` to determine which has a value of 15.  
 ```{r}
-
+my_vector_sequence <- c(1:100)
+my_vector_sequence == 15 
 ```
 
 3. We can use operators such as <, >, ==, <==, etc. Show all values in `my_vector_sequence` that are less than 10.  How about less than or equal to 10?  
 ```{r}
+my_vector_sequence < 10
+my_vector_sequence <= 10 
 
 ```
 
 4. If you use `[]` then you only get the values, not the logical evaluation of the entire vector. Experiment with this by adjusting the chunk below.    
 ```{r}
-my_vector_sequence[my_vector_sequence <= 10]
+my_vector_sequence[my_vector_sequence > 2]
 ```
 
 ## Data Matrices
@@ -86,6 +90,8 @@ Create a new object called `box_office`. Here we are using the `c` command to co
 ```{r}
 box_office <- c(Philosophers_Stone, Chamber_of_Secrets, Prisoner_of_Azkaban, Goblet_of_Fire, Order_of_the_Phoenix, Half_Blood_Prince, Deathly_Hallows_1, Deathly_Hallows_2)
 box_office
+harry_potter_matrix <- matrix(box_office, nrow = 8, byrow = T)
+harry_potter_matrix
 ```
 
 Create `harry_potter_matrix` using the `matrix()` command. We need to tell R how to organize the `box_office` vector using the `nrow` and `byrow` commands.
@@ -136,12 +142,14 @@ all_harry_potter_matrix
 ## Practice
 1. What are the total earnings for the US and non-US regions?  
 ```{r}
-
+total_earnings <- colSums(all_harry_potter_matrix)
+total_earnings
 ```
 
 2. Add this information to the data matrix. Hint: you are adding a row, not a column.  
 ```{r}
-
+final_harry_potter_matrix <- rbind(all_harry_potter_matrix, total_earnings)
+final_harry_potter_matrix
 ```
 
 ## A few Extras
@@ -159,6 +167,7 @@ We can also select values in an entire row or column. This can be useful for cal
 ```{r}
 non_us_earnings <- all_harry_potter_matrix[ ,2]
 mean(non_us_earnings)
+non_us_earnings
 ```
 
 ## Wrap-up

@@ -107,6 +107,11 @@ my_integer <-
 ```{r}
 is.integer(my_integer) #is my_numeric an integer?
 ```
+```{r}
+practice_integer <- 50L
+practice_integer <- as.numeric(practice_integer)
+is.integer(practice_integer)
+```
 
 ## Missing Data
 R has a special way to designate missing data, the NA. NA values in R have specific properties which are very useful if your data contains any missing values. Later this quarter we will have a session focused on dealing with NAs.  
@@ -133,6 +138,11 @@ new_vector <- c(7, 6.2, 5, 9, NA, 4, 9.8, 7, 3, 2)
 2. As we did in homework 1, calculate the mean of `new_vector`.
 ```{r}
 mean(new_vector)
+```
+```{r}
+new_NA_practice <- c(10, NA, 20)
+is.na(new_NA_practice)
+anyNA(new_NA_practice)
 ```
 
 3. How do you interpret this result? What does this mean about NAs?  
