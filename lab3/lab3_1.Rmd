@@ -126,27 +126,33 @@ spring <- c("Buckeye", "Buckeye", "Buckeye", "Benton", "Benton", "Benton", "Trav
 
 1. Build a data frame called `hsprings` with the above data. Name the temperature column `temp_C`. Print out the data frame.  
 ```{r}
-
+hspring <- data.frame(temp_C = temp, name, spring)
+hspring
 ```
 
 2. Change the column titled `name` to `scientist`, leave the other column names the same. Print out the data frame names.  
 ```{r}
-
+hspring <- data.frame( temp_C = temp, scientist = name, spring)
+hspring
+names(hspring)
 ```
 
 3. Our scientists forgot to record the depth data for each spring. Here it is as a vector, add it as a new column called depth_ft: `c(4.15, 4.13, 4.12, 3.21, 3.23, 3.20, 5.67, 5.65, 5.66)`. Print out the data frame.
 ```{r}
-
+depth_ft <- c(4.15, 4.13, 4.12, 3.21, 3.23, 3.20, 5.67, 5.65, 5.66)
+new_hspring <- cbind(hspring, depth_ft)
+new_hspring
 ```
 
 4. Calculate the mean temperature of all of the temperature measurements.
 ```{r}
-
+t <- new_hspring$temp_C
+mean(t)
 ```
 
 5. Save your hot springs data as a `.csv` file! Do not allow row names. 
 ```{r}
-
+write.csv(new_hspring, "new_hspring.csv", row.names = FALSE )
 ```
 
 ## That's it! Take a break and I will see you on Zoom!  
