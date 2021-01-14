@@ -1,6 +1,6 @@
 ---
 title: "Getting Started"
-date: "`r Sys.Date()`"
+date: "2021-01-13"
 output:
   html_document: 
     theme: spacelab
@@ -9,12 +9,7 @@ output:
     keep_md: yes
 ---
 
-```{r setup, include = FALSE}
-knitr::opts_chunk$set(
-  collapse = TRUE,
-  comment = "#>"
-)
-```
+
 
 ## Background  
 In nearly every field of science, our ability to generate data has exceeded our capacity for analysis. For me, this means that there is the potential for loss to science; many important discoveries may go unnoticed because we are unable to efficiently analyze data.  
