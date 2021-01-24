@@ -29,13 +29,19 @@ For the homework, we will use data about vertebrate home range sizes. The data a
 Reference: Tamburello N, Cote IM, Dulvy NK (2015) Energy and the scaling of animal space use. The American Naturalist 186(2):196-211. http://dx.doi.org/10.1086/682070.  
 Data: http://datadryad.org/resource/doi:10.5061/dryad.q5j65/1  
 
+<style>
+div.blue { background-color:#e6f0ff; border-radius: 5px; padding: 20px;}
+</style>
+<div class = "blue">
 **1. Load the data into a new object called `homerange`.**
 
 ```{r}
-setwd("~/Documents/GitHub/BIS15W2021_jviswanathan/lab4/data")
-homerange <- readr:: read_csv("Tamburelloetal_HomeRangeDatabase.csv")
+#setwd("~/Documents/GitHub/BIS15W2021_jviswanathan/lab4/data")
+homerange <- readr:: read_csv("data/Tamburelloetal_HomeRangeDatabase.csv")
 ```
+</div>
 
+In order to get your code to run, I had to adjust the directory. Also, the setwd() command will only work on your computer, so if you include it comment it out.
 
 **2. Explore the data. Show the dimensions, column names, classes for each variable, and a statistical summary. Keep these as separate code chunks.**  
 ```{r}

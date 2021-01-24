@@ -89,6 +89,10 @@ large_sleep
 
 ```
 
+<style>
+div.blue { background-color:#e6f0ff; border-radius: 5px; padding: 20px;}
+</style>
+<div class = "blue">
 10. Which animal is the sleepiest among the entire dataframe?
 ```{r}
 which.max(sleep$mean.hra.m2)
@@ -96,10 +100,7 @@ sleep[287, ]
 
 #The reindeer seems to be the sleepiest. 
 ```
-
-```{r}
-
-```
+</div>
 
 ## Push your final code to GitHub!
 Please be sure that you check the `keep md` file in the knit preferences.   

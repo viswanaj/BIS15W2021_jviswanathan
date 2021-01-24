@@ -1,7 +1,7 @@
 ---
 title: "Lab 3 Homework"
 author: "Jayashri Viswanathan"
-date: "2021-01-14"
+date: "2021-01-24"
 output:
   html_document: 
     theme: spacelab
@@ -33,8 +33,7 @@ sleep <- readr::read_csv("data/Tamburelloetal_HomeRangeDatabase.csv")
 ```
 
 ```
-## 
-## ── Column specification ────────────────────────────────────────────────────────
+## Parsed with column specification:
 ## cols(
 ##   .default = col_character(),
 ##   mean.mass.g = col_double(),
@@ -45,7 +44,10 @@ sleep <- readr::read_csv("data/Tamburelloetal_HomeRangeDatabase.csv")
 ##   log10.preymass = col_double(),
 ##   PPMR = col_double()
 ## )
-## ℹ Use `spec()` for the full column specifications.
+```
+
+```
+## See spec(...) for full column specifications.
 ```
 
 ```r
@@ -197,6 +199,10 @@ large_sleep
 
 
 
+<style>
+div.blue { background-color:#e6f0ff; border-radius: 5px; padding: 20px;}
+</style>
+<div class = "blue">
 10. Which animal is the sleepiest among the entire dataframe?
 
 ```r
@@ -226,8 +232,7 @@ sleep[287, ]
 ```r
 #The reindeer seems to be the sleepiest. 
 ```
-
-
+</div>
 
 ## Push your final code to GitHub!
 Please be sure that you check the `keep md` file in the knit preferences.   
