@@ -22,15 +22,15 @@ Make sure to use the formatting conventions of RMarkdown to make your report nea
 library(tidyverse)
 library(janitor)
 library(skimr)
-setwd("~/Documents/GitHub/BIS15W2021_jviswanathan/lab6/data")
+#setwd("~/Documents/GitHub/BIS15W2021_jviswanathan/lab6/data")
 ```
 
 For this assignment we are going to work with a large data set from the [United Nations Food and Agriculture Organization](http://www.fao.org/about/en/) on world fisheries. These data are pretty wild, so we need to do some cleaning. First, load the data.  
 
 Load the data `FAO_1950to2012_111914.csv` as a new object titled `fisheries`.
 ```{r}
-setwd("~/Documents/GitHub/BIS15W2021_jviswanathan/lab6/data")
-fisheries <- readr::read_csv("FAO_1950to2012_111914.csv")
+#setwd("~/Documents/GitHub/BIS15W2021_jviswanathan/lab6/data")
+fisheries <- readr::read_csv("data/FAO_1950to2012_111914.csv")
 ```
 
 1. Do an exploratory analysis of the data (your choice). What are the names of the variables, what are the dimensions, are there any NA's, what are the classes of the variables?  
@@ -112,6 +112,10 @@ fisheries_tidy_focused %>%
   summarize(sardine_decade = sum(catch, na.rm=T)) %>%
   arrange(desc(sardine_decade))
 ```
+<style>
+div.blue { background-color:#e6f0ff; border-radius: 5px; padding: 20px;}
+</style>
+<div class = "blue">
 
 8. Which five countries caught the most cephalopods between 2008-2012?
 ```{r}
@@ -123,6 +127,7 @@ fisheries_tidy_focused %>%
   summarise(catch_total = sum(catch), na.rm = T) %>%
   arrange(desc(catch_total))
 ```
+</div>
 
 9. Which species had the highest catch total between 2008-2012? (hint: Osteichthyes is not a species)
 ```{r}
