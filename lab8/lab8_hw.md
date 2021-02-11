@@ -1,7 +1,7 @@
 ---
 title: "Lab 8 Homework"
 author: "Jayashri Viswanathan"
-date: "2021-02-04"
+date: "2021-02-09"
 output:
   html_document: 
     theme: spacelab
@@ -31,7 +31,7 @@ library(here)
 ```
 
 ```
-## here() starts at /Users/viswanaj/Documents/GitHub/BIS15W2021_jviswanathan
+## here() starts at D:/TA files/Winter2021 BIS15L/students_rep/BIS15W2021_jviswanathan
 ```
 
 ## Data
@@ -47,7 +47,7 @@ sydneybeaches <- read_csv(here("lab8", "data", "sydneybeaches.csv"))
 
 ```
 ## 
-## ── Column specification ────────────────────────────────────────────────────────
+## -- Column specification --------------------------------------------------------
 ## cols(
 ##   BeachId = col_double(),
 ##   Region = col_character(),
@@ -74,7 +74,7 @@ sydneybeaches <-read_csv(here("lab8", "data", "sydneybeaches.csv")) %>% janitor:
 
 ```
 ## 
-## ── Column specification ────────────────────────────────────────────────────────
+## -- Column specification --------------------------------------------------------
 ## cols(
 ##   BeachId = col_double(),
 ##   Region = col_character(),
@@ -93,24 +93,29 @@ sydneybeaches
 
 ```
 ## # A tibble: 3,690 x 8
-##    beach_id region    council   site   longitude latitude date  enterococci_cfu…
+##    beach_id region    council   site   longitude latitude date  enterococci_cfu~
 ##       <dbl> <chr>     <chr>     <chr>      <dbl>    <dbl> <chr>            <dbl>
-##  1       25 Sydney C… Randwick… Clove…      151.    -33.9 02/0…               19
-##  2       25 Sydney C… Randwick… Clove…      151.    -33.9 06/0…                3
-##  3       25 Sydney C… Randwick… Clove…      151.    -33.9 12/0…                2
-##  4       25 Sydney C… Randwick… Clove…      151.    -33.9 18/0…               13
-##  5       25 Sydney C… Randwick… Clove…      151.    -33.9 30/0…                8
-##  6       25 Sydney C… Randwick… Clove…      151.    -33.9 05/0…                7
-##  7       25 Sydney C… Randwick… Clove…      151.    -33.9 11/0…               11
-##  8       25 Sydney C… Randwick… Clove…      151.    -33.9 23/0…               97
-##  9       25 Sydney C… Randwick… Clove…      151.    -33.9 07/0…                3
-## 10       25 Sydney C… Randwick… Clove…      151.    -33.9 25/0…                0
-## # … with 3,680 more rows
+##  1       25 Sydney C~ Randwick~ Clove~      151.    -33.9 02/0~               19
+##  2       25 Sydney C~ Randwick~ Clove~      151.    -33.9 06/0~                3
+##  3       25 Sydney C~ Randwick~ Clove~      151.    -33.9 12/0~                2
+##  4       25 Sydney C~ Randwick~ Clove~      151.    -33.9 18/0~               13
+##  5       25 Sydney C~ Randwick~ Clove~      151.    -33.9 30/0~                8
+##  6       25 Sydney C~ Randwick~ Clove~      151.    -33.9 05/0~                7
+##  7       25 Sydney C~ Randwick~ Clove~      151.    -33.9 11/0~               11
+##  8       25 Sydney C~ Randwick~ Clove~      151.    -33.9 23/0~               97
+##  9       25 Sydney C~ Randwick~ Clove~      151.    -33.9 07/0~                3
+## 10       25 Sydney C~ Randwick~ Clove~      151.    -33.9 25/0~                0
+## # ... with 3,680 more rows
 ```
+<style>
+div.blue { background-color:#e6f0ff; border-radius: 5px; padding: 20px;}
+</style>
+<div class = "blue">
 
 2. Are these data "tidy" per the definitions of the tidyverse? How do you know? Are they in wide or long format?
 
 Yes, they seem tidy. each value has its own row, and each variable is its own column. also, each entry fits into 1 cell. 
+</div>
 
 3. We are only interested in the variables site, date, and enterococci_cfu_100ml. Make a new object focused on these variables only. Name the object `sydneybeaches_long`
 
@@ -136,7 +141,7 @@ sydneybeaches_long
 ##  8 Clovelly Beach 23/02/2013                    97
 ##  9 Clovelly Beach 07/03/2013                     3
 ## 10 Clovelly Beach 25/03/2013                     0
-## # … with 3,680 more rows
+## # ... with 3,680 more rows
 ```
 
 
@@ -157,18 +162,18 @@ sydneybeaches_wide
 ## # A tibble: 11 x 345
 ##    site  `02/01/2013` `06/01/2013` `12/01/2013` `18/01/2013` `30/01/2013`
 ##    <chr>        <dbl>        <dbl>        <dbl>        <dbl>        <dbl>
-##  1 Clov…           19            3            2           13            8
-##  2 Coog…           15            4           17           18           22
-##  3 Gord…           NA           NA           NA           NA           NA
-##  4 Litt…            9            3           72            1           44
-##  5 Mala…            2            4          390           15           13
-##  6 Maro…            1            1           20            2           11
-##  7 Sout…            1            0           33            2           13
-##  8 Sout…           12            2          110           13          100
-##  9 Bond…            3            1            2            1            6
-## 10 Bron…            4            2           38            3           25
-## 11 Tama…            1            0            7           22           23
-## # … with 339 more variables: `05/02/2013` <dbl>, `11/02/2013` <dbl>,
+##  1 Clov~           19            3            2           13            8
+##  2 Coog~           15            4           17           18           22
+##  3 Gord~           NA           NA           NA           NA           NA
+##  4 Litt~            9            3           72            1           44
+##  5 Mala~            2            4          390           15           13
+##  6 Maro~            1            1           20            2           11
+##  7 Sout~            1            0           33            2           13
+##  8 Sout~           12            2          110           13          100
+##  9 Bond~            3            1            2            1            6
+## 10 Bron~            4            2           38            3           25
+## 11 Tama~            1            0            7           22           23
+## # ... with 339 more variables: `05/02/2013` <dbl>, `11/02/2013` <dbl>,
 ## #   `23/02/2013` <dbl>, `07/03/2013` <dbl>, `25/03/2013` <dbl>,
 ## #   `02/04/2013` <dbl>, `12/04/2013` <dbl>, `18/04/2013` <dbl>,
 ## #   `24/04/2013` <dbl>, `01/05/2013` <dbl>, `20/05/2013` <dbl>,
@@ -201,7 +206,7 @@ sydneybeaches_wide
 ## #   `29/03/2014` <dbl>, `22/04/2014` <dbl>, `14/04/2014` <dbl>,
 ## #   `30/04/2014` <dbl>, `12/05/2014` <dbl>, `28/05/2014` <dbl>,
 ## #   `03/06/2014` <dbl>, `19/06/2014` <dbl>, `03/07/2014` <dbl>,
-## #   `18/07/2014` <dbl>, `01/08/2014` <dbl>, …
+## #   `18/07/2014` <dbl>, `01/08/2014` <dbl>, ...
 ```
 
 
@@ -230,7 +235,7 @@ sydneybeaches_wide %>%
 ##  8 Clovelly Beach 23/02/2013                    97
 ##  9 Clovelly Beach 07/03/2013                     3
 ## 10 Clovelly Beach 25/03/2013                     0
-## # … with 3,774 more rows
+## # ... with 3,774 more rows
 ```
 
 
@@ -255,7 +260,7 @@ sydneybeaches_long %>%
 ##  8 Clovelly Beach 23    02    2013                     97
 ##  9 Clovelly Beach 07    03    2013                      3
 ## 10 Clovelly Beach 25    03    2013                      0
-## # … with 3,680 more rows
+## # ... with 3,680 more rows
 ```
 
 
@@ -291,7 +296,7 @@ enterococci_average
 ##  8 Bronte Beach 2014            17.5
 ##  9 Bronte Beach 2015            23.6
 ## 10 Bronte Beach 2016            61.3
-## # … with 56 more rows
+## # ... with 56 more rows
 ```
 
 
@@ -318,7 +323,7 @@ enterococci_average_wide
 ## 4 2016           19.4           61.3            11.3            59.5
 ## 5 2017           13.2           16.8             7.93           20.7
 ## 6 2018           22.9           43.4            10.6            21.6
-## # … with 7 more variables: `Gordons Bay (East)` <dbl>, `Little Bay
+## # ... with 7 more variables: `Gordons Bay (East)` <dbl>, `Little Bay
 ## #   Beach` <dbl>, `Malabar Beach` <dbl>, `Maroubra Beach` <dbl>, `South
 ## #   Maroubra Beach` <dbl>, `South Maroubra Rockpool` <dbl>, `Tamarama
 ## #   Beach` <dbl>
