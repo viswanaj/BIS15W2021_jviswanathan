@@ -20,8 +20,8 @@ output:
 ## Install the packages `naniar` and `visdat`
 We will use these in part 2 of today's lab.
 ```{r}
-#install.packages("naniar")
-#install.packages("visdat")
+install.packages("naniar")
+install.packages("visdat")
 ```
 
 ## Load the libraries
