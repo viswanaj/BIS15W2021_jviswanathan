@@ -1,7 +1,7 @@
 ---
 title: "Lab 7 Homework"
 author: "Jayashri Viswanathan"
-date: "2021-02-03"
+date: "2021-02-11"
 output:
   html_document: 
     theme: spacelab
@@ -32,13 +32,13 @@ database to perform comparative analyses with birds, mammals, and reptiles.” _
 doi: 10.1890/15-0846.1 (URL: https://doi.org/10.1890/15-0846.1).
 
 ```r
-setwd("~/Documents/GitHub/BIS15W2021_jviswanathan/lab7/data")
-amniota <- readr:: read_csv("amniota.csv")
+# setwd("~/Documents/GitHub/BIS15W2021_jviswanathan/lab7/data")
+amniota <- readr:: read_csv("data/amniota.csv")
 ```
 
 ```
 ## 
-## ── Column specification ────────────────────────────────────────────────────────
+## -- Column specification --------------------------------------------------------
 ## cols(
 ##   .default = col_double(),
 ##   class = col_character(),
@@ -48,7 +48,7 @@ amniota <- readr:: read_csv("amniota.csv")
 ##   species = col_character(),
 ##   common_name = col_character()
 ## )
-## ℹ Use `spec()` for the full column specifications.
+## i Use `spec()` for the full column specifications.
 ```
 
 ```r
@@ -62,13 +62,13 @@ for amphibian ecological traits.” _Scientific Data_, *4*, 170123. doi: 10.1038
 https://doi.org/10.1038/sdata.2017.123).
 
 ```r
-setwd("~/Documents/GitHub/BIS15W2021_jviswanathan/lab7/data")
-amphibio <- readr::read_csv("amphibio.csv")
+# setwd("~/Documents/GitHub/BIS15W2021_jviswanathan/lab7/data")
+amphibio <- readr::read_csv("data/amphibio.csv")
 ```
 
 ```
 ## 
-## ── Column specification ────────────────────────────────────────────────────────
+## -- Column specification --------------------------------------------------------
 ## cols(
 ##   .default = col_double(),
 ##   id = col_character(),
@@ -79,18 +79,18 @@ amphibio <- readr::read_csv("amphibio.csv")
 ##   Seeds = col_logical(),
 ##   OBS = col_logical()
 ## )
-## ℹ Use `spec()` for the full column specifications.
+## i Use `spec()` for the full column specifications.
 ```
 
 ```
 ## Warning: 125 parsing failures.
-##  row col           expected                                                           actual           file
-## 1410 OBS 1/0/T/F/TRUE/FALSE Identified as P. appendiculata in Boquimpani-Freitas et al. 2002 'amphibio.csv'
-## 1416 OBS 1/0/T/F/TRUE/FALSE Identified as T. miliaris in Giaretta and Facure 2004            'amphibio.csv'
-## 1447 OBS 1/0/T/F/TRUE/FALSE Considered endangered by Soto-Azat et al. 2013                   'amphibio.csv'
-## 1448 OBS 1/0/T/F/TRUE/FALSE Considered extinct by Soto-Azat et al. 2013                      'amphibio.csv'
-## 1471 OBS 1/0/T/F/TRUE/FALSE nomem dubitum                                                    'amphibio.csv'
-## .... ... .................. ................................................................ ..............
+##  row col           expected                                                           actual                file
+## 1410 OBS 1/0/T/F/TRUE/FALSE Identified as P. appendiculata in Boquimpani-Freitas et al. 2002 'data/amphibio.csv'
+## 1416 OBS 1/0/T/F/TRUE/FALSE Identified as T. miliaris in Giaretta and Facure 2004            'data/amphibio.csv'
+## 1447 OBS 1/0/T/F/TRUE/FALSE Considered endangered by Soto-Azat et al. 2013                   'data/amphibio.csv'
+## 1448 OBS 1/0/T/F/TRUE/FALSE Considered extinct by Soto-Azat et al. 2013                      'data/amphibio.csv'
+## 1471 OBS 1/0/T/F/TRUE/FALSE nomem dubitum                                                    'data/amphibio.csv'
+## .... ... .................. ................................................................ ...................
 ## See problems(...) for more details.
 ```
 
@@ -98,6 +98,10 @@ amphibio <- readr::read_csv("amphibio.csv")
 amphibio <- amphibio %>%
   clean_names()
 ```
+<style>
+div.blue { background-color:#e6f0ff; border-radius: 5px; padding: 20px;}
+</style>
+<div class = "blue">
 
 ## Questions  
 **2. Do some exploratory analysis of the `amniota` data set. Use the function(s) of your choice. Try to get an idea of how NA's are represented in the data.**  
@@ -125,8 +129,9 @@ amniota %>%
 ##  8 female_maturity_d               0
 ##  9 litter_or_clutch_size_n         0
 ## 10 litters_or_clutches_per_y       0
-## # … with 26 more rows
+## # ... with 26 more rows
 ```
+</div>
 
 **3. Do some exploratory analysis of the `amphibio` data set. Use the function(s) of your choice. Try to get an idea of how NA's are represented in the data.**  
 
@@ -154,7 +159,7 @@ amphibio %>%
 ##  8 wet_cold     6625
 ##  9 crepu        6608
 ## 10 dry_warm     6572
-## # … with 28 more rows
+## # ... with 28 more rows
 ```
 
 **4. How many total NA's are in each data set? Do these values make sense? Are NA's represented by values?**   
@@ -202,15 +207,15 @@ amphibio_na
 **5. Make any necessary replacements in the data such that all NA's appear as "NA".**   
 
 ```r
-setwd("~/Documents/GitHub/BIS15W2021_jviswanathan/lab7/data")
+#setwd("~/Documents/GitHub/BIS15W2021_jviswanathan/lab7/data")
 amniota_clean <- 
-  readr :: read_csv("amniota.csv", 
+  readr :: read_csv("data/amniota.csv", 
                     na = c("NA", " ", ".", "-999"))
 ```
 
 ```
 ## 
-## ── Column specification ────────────────────────────────────────────────────────
+## -- Column specification --------------------------------------------------------
 ## cols(
 ##   .default = col_double(),
 ##   class = col_character(),
@@ -230,33 +235,33 @@ amniota_clean <-
 ##   female_body_mass_at_maturity_g = col_logical(),
 ##   no_sex_svl_cm = col_logical()
 ## )
-## ℹ Use `spec()` for the full column specifications.
+## i Use `spec()` for the full column specifications.
 ```
 
 ```
 ## Warning: 13577 parsing failures.
-##  row                      col           expected actual          file
-## 9803 birth_or_hatching_svl_cm 1/0/T/F/TRUE/FALSE    4.7 'amniota.csv'
-## 9804 birth_or_hatching_svl_cm 1/0/T/F/TRUE/FALSE    4.7 'amniota.csv'
-## 9805 birth_or_hatching_svl_cm 1/0/T/F/TRUE/FALSE    4.7 'amniota.csv'
-## 9806 birth_or_hatching_svl_cm 1/0/T/F/TRUE/FALSE    4.7 'amniota.csv'
-## 9807 birth_or_hatching_svl_cm 1/0/T/F/TRUE/FALSE    4.7 'amniota.csv'
-## .... ........................ .................. ...... .............
+##  row                      col           expected actual               file
+## 9803 birth_or_hatching_svl_cm 1/0/T/F/TRUE/FALSE    4.7 'data/amniota.csv'
+## 9804 birth_or_hatching_svl_cm 1/0/T/F/TRUE/FALSE    4.7 'data/amniota.csv'
+## 9805 birth_or_hatching_svl_cm 1/0/T/F/TRUE/FALSE    4.7 'data/amniota.csv'
+## 9806 birth_or_hatching_svl_cm 1/0/T/F/TRUE/FALSE    4.7 'data/amniota.csv'
+## 9807 birth_or_hatching_svl_cm 1/0/T/F/TRUE/FALSE    4.7 'data/amniota.csv'
+## .... ........................ .................. ...... ..................
 ## See problems(...) for more details.
 ```
 
 
 ```r
-setwd("~/Documents/GitHub/BIS15W2021_jviswanathan/lab7/data")
+#setwd("~/Documents/GitHub/BIS15W2021_jviswanathan/lab7/data")
 amphibio_clean <- 
   clean_names(amphibio)
-  readr :: read_csv("amphibio.csv", 
+  readr :: read_csv("data/amphibio.csv", 
                     na = c("NA", " ", ".", "-999"))
 ```
 
 ```
 ## 
-## ── Column specification ────────────────────────────────────────────────────────
+## -- Column specification --------------------------------------------------------
 ## cols(
 ##   .default = col_double(),
 ##   id = col_character(),
@@ -267,18 +272,18 @@ amphibio_clean <-
 ##   Seeds = col_logical(),
 ##   OBS = col_logical()
 ## )
-## ℹ Use `spec()` for the full column specifications.
+## i Use `spec()` for the full column specifications.
 ```
 
 ```
 ## Warning: 125 parsing failures.
-##  row col           expected                                                           actual           file
-## 1410 OBS 1/0/T/F/TRUE/FALSE Identified as P. appendiculata in Boquimpani-Freitas et al. 2002 'amphibio.csv'
-## 1416 OBS 1/0/T/F/TRUE/FALSE Identified as T. miliaris in Giaretta and Facure 2004            'amphibio.csv'
-## 1447 OBS 1/0/T/F/TRUE/FALSE Considered endangered by Soto-Azat et al. 2013                   'amphibio.csv'
-## 1448 OBS 1/0/T/F/TRUE/FALSE Considered extinct by Soto-Azat et al. 2013                      'amphibio.csv'
-## 1471 OBS 1/0/T/F/TRUE/FALSE nomem dubitum                                                    'amphibio.csv'
-## .... ... .................. ................................................................ ..............
+##  row col           expected                                                           actual                file
+## 1410 OBS 1/0/T/F/TRUE/FALSE Identified as P. appendiculata in Boquimpani-Freitas et al. 2002 'data/amphibio.csv'
+## 1416 OBS 1/0/T/F/TRUE/FALSE Identified as T. miliaris in Giaretta and Facure 2004            'data/amphibio.csv'
+## 1447 OBS 1/0/T/F/TRUE/FALSE Considered endangered by Soto-Azat et al. 2013                   'data/amphibio.csv'
+## 1448 OBS 1/0/T/F/TRUE/FALSE Considered extinct by Soto-Azat et al. 2013                      'data/amphibio.csv'
+## 1471 OBS 1/0/T/F/TRUE/FALSE nomem dubitum                                                    'data/amphibio.csv'
+## .... ... .................. ................................................................ ...................
 ## See problems(...) for more details.
 ```
 
@@ -286,17 +291,17 @@ amphibio_clean <-
 ## # A tibble: 6,776 x 38
 ##    id    Order Family Genus Species   Fos   Ter   Aqu   Arb Leaves Flowers Seeds
 ##    <chr> <chr> <chr>  <chr> <chr>   <dbl> <dbl> <dbl> <dbl>  <dbl>   <dbl> <lgl>
-##  1 Anf0… Anura Allop… Allo… Alloph…    NA     1     1     1     NA      NA NA   
-##  2 Anf0… Anura Alyti… Alyt… Alytes…    NA     1     1     1     NA      NA NA   
-##  3 Anf0… Anura Alyti… Alyt… Alytes…    NA     1     1     1     NA      NA NA   
-##  4 Anf0… Anura Alyti… Alyt… Alytes…    NA     1     1     1     NA      NA NA   
-##  5 Anf0… Anura Alyti… Alyt… Alytes…    NA     1    NA     1     NA      NA NA   
-##  6 Anf0… Anura Alyti… Alyt… Alytes…     1     1     1     1     NA      NA NA   
-##  7 Anf0… Anura Alyti… Disc… Discog…     1     1     1    NA     NA      NA NA   
-##  8 Anf0… Anura Alyti… Disc… Discog…     1     1     1    NA     NA      NA NA   
-##  9 Anf0… Anura Alyti… Disc… Discog…     1     1     1    NA     NA      NA NA   
-## 10 Anf0… Anura Alyti… Disc… Discog…     1     1     1    NA     NA      NA NA   
-## # … with 6,766 more rows, and 26 more variables: Fruits <dbl>, Arthro <dbl>,
+##  1 Anf0~ Anura Allop~ Allo~ Alloph~    NA     1     1     1     NA      NA NA   
+##  2 Anf0~ Anura Alyti~ Alyt~ Alytes~    NA     1     1     1     NA      NA NA   
+##  3 Anf0~ Anura Alyti~ Alyt~ Alytes~    NA     1     1     1     NA      NA NA   
+##  4 Anf0~ Anura Alyti~ Alyt~ Alytes~    NA     1     1     1     NA      NA NA   
+##  5 Anf0~ Anura Alyti~ Alyt~ Alytes~    NA     1    NA     1     NA      NA NA   
+##  6 Anf0~ Anura Alyti~ Alyt~ Alytes~     1     1     1     1     NA      NA NA   
+##  7 Anf0~ Anura Alyti~ Disc~ Discog~     1     1     1    NA     NA      NA NA   
+##  8 Anf0~ Anura Alyti~ Disc~ Discog~     1     1     1    NA     NA      NA NA   
+##  9 Anf0~ Anura Alyti~ Disc~ Discog~     1     1     1    NA     NA      NA NA   
+## 10 Anf0~ Anura Alyti~ Disc~ Discog~     1     1     1    NA     NA      NA NA   
+## # ... with 6,766 more rows, and 26 more variables: Fruits <dbl>, Arthro <dbl>,
 ## #   Vert <dbl>, Diu <dbl>, Noc <dbl>, Crepu <dbl>, Wet_warm <dbl>,
 ## #   Wet_cold <dbl>, Dry_warm <dbl>, Dry_cold <dbl>, Body_mass_g <dbl>,
 ## #   Age_at_maturity_min_y <dbl>, Age_at_maturity_max_y <dbl>,
@@ -327,7 +332,7 @@ naniar :: miss_var_summary(amniota_clean)
 ##  8 female_body_mass_at_maturity_g  21322     100 
 ##  9 no_sex_svl_cm                   21322     100 
 ## 10 birth_or_hatching_svl_cm        21321     100.
-## # … with 26 more rows
+## # ... with 26 more rows
 ```
 
 **7. Use the package `naniar` to produce a summary, including percentages, of missing data in each column for the `amphibio` data.**
@@ -350,7 +355,7 @@ naniar :: miss_var_summary(amphibio_clean)
 ##  8 wet_cold   6625     97.8
 ##  9 crepu      6608     97.5
 ## 10 dry_warm   6572     97.0
-## # … with 28 more rows
+## # ... with 28 more rows
 ```
 
 **8. For the `amniota` data, calculate the number of NAs in the `egg_mass_g` column sorted by taxonomic class; i.e. how many NA's are present in the `egg_mass_g` column in birds, mammals, and reptiles? Does this results make sense biologically? How do these results affect your interpretation of NA's?**  
@@ -446,12 +451,17 @@ amphibio_clean %>%
 ```r
 #The 'NAs' in this data frame may actually mean "no", rather than an invalid data entry. 
 ```
+<style>
+div.blue { background-color:#e6f0ff; border-radius: 5px; padding: 20px;}
+</style>
+<div class = "blue">
 
 **10. Now that we know how NA's are represented in the `amniota` data, how would you load the data such that the values which represent NA's are automatically converted?**
 
 ```r
 # I would change all the "NA" to a value of 0. 
 ```
+</div>
 
 ## Push your final code to GitHub!
 Please be sure that you check the `keep md` file in the knit preferences.  

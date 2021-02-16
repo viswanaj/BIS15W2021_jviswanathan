@@ -1,7 +1,7 @@
 ---
 title: "Lab 10 Homework"
 author: "Jayashri Viswanathan"
-date: "2021-02-11"
+date: "2021-02-15"
 output:
   html_document: 
     theme: spacelab
@@ -33,7 +33,7 @@ deserts <- read_csv(here("lab10", "data", "surveys_complete.csv"))
 
 ```
 ## 
-## ── Column specification ────────────────────────────────────────────────────────
+## -- Column specification --------------------------------------------------------
 ## cols(
 ##   record_id = col_double(),
 ##   month = col_double(),
@@ -165,7 +165,7 @@ deserts %>%
 ##  8 Perognathus     flavus        1597
 ##  9 Peromyscus      eremicus      1299
 ## 10 Neotoma         albigula      1252
-## # … with 38 more rows
+## # ... with 38 more rows
 ```
 
 ```r
@@ -334,7 +334,7 @@ deserts %>%
 ##  8 DM                   43.2
 ##  9 PB                   31.7
 ## 10 OL                   31.6
-## # … with 15 more rows
+## # ... with 15 more rows
 ```
 
 
@@ -361,7 +361,7 @@ deserts %>%
 ##  8        70     8    19  1977       3 OX         F                  21     22
 ##  9        71     8    19  1977       7 DM         F                  36     35
 ## 10        74     8    19  1977       8 PF         M                  12      7
-## # … with 30,728 more rows, and 5 more variables: genus <chr>, species <chr>,
+## # ... with 30,728 more rows, and 5 more variables: genus <chr>, species <chr>,
 ## #   taxa <chr>, plot_type <chr>, weight_hindfoot_ratio <dbl>
 ```
 
