@@ -27,30 +27,40 @@ library(here)
 options(scipen=999) #disables scientific notation when printing
 ```
 
+<style>
+div.blue { background-color:#e6f0ff; border-radius: 5px; padding: 20px;}
+</style>
+<div class = "blue">
 ## Gapminder
 For this assignment, we are going to use data from  [gapminder](https://www.gapminder.org/). Gapminder includes information about economics, population, social issues, and life expectancy from countries all over the world. We will use three data sets, so please load all three.  
 
-One thing to note is that the data include years beyond 2021. These are projections based on modeling done by the gapminder organization. Start by importing the data.
+One thing to note is that the data include years beyond 2021. These are projections based on modeling done by the gapminder organization. Start by importing the data.  
+
+# You can't use setwd in your code; it won't work on anybody else's computer. If you look at the path it points to your directory which they won't have. I suggest using the here package. If you write really nice code but it has directory issues then a lot of less experienced users won't even try it out.
 ```{r}
-setwd("~/Documents/GitHub/BIS15W2021_jviswanathan/midterm2/data")
-
-
-population <- read_csv("population_total.csv")
-population
+#setwd("~/Documents/GitHub/BIS15W2021_jviswanathan/midterm2/data")
 ```
 
 ```{r}
-setwd("~/Documents/GitHub/BIS15W2021_jviswanathan/midterm2/data")
-income <- read_csv("income_per_person_gdppercapita_ppp_inflation_adjusted.csv")
-income
+population <- read_csv(here("midterm2", "data", "population_total.csv"))
 ```
 
 ```{r}
-setwd("~/Documents/GitHub/BIS15W2021_jviswanathan/midterm2/data")
-life_expectancy <- read_csv("life_expectancy_years.csv")
-life_expectancy
+#setwd("~/Documents/GitHub/BIS15W2021_jviswanathan/midterm2/data")
+income <- read_csv(here("midterm2", "data", "income_per_person_gdppercapita_ppp_inflation_adjusted.csv"))
 ```
 
+```{r}
+#setwd("~/Documents/GitHub/BIS15W2021_jviswanathan/midterm2/data")
+life_expectancy <- read_csv(here("midterm2", "data", "life_expectancy_years.csv"))
+```
+
+</div>
+
+<style>
+div.blue { background-color:#e6f0ff; border-radius: 5px; padding: 20px;}
+</style>
+<div class = "blue">
 1. (3 points) Once you have an idea of the structure of the data, please make each data set tidy and store them as new objects. You will need both the original and tidy data!
 ```{r}
 population_tidy <- population %>%
@@ -66,12 +76,23 @@ income_tidy <- income %>%
 income_tidy
 ```
 
+# You forgot to change name of the data here. This affected all of your downstream analyses.
 ```{r}
-life_expectancy_tidy <- income %>%
+#life_expectancy_tidy <- income %>%
+#  pivot_longer(!country, names_to = "year", values_to = "life_expectancy")
+
+#life_expectancy_tidy
+```
+
+# It should be like this.
+```{r}
+life_expectancy_tidy <- life_expectancy %>%
   pivot_longer(!country, names_to = "year", values_to = "life_expectancy")
 
 life_expectancy_tidy
 ```
+
+</div>
 
 2. (1 point) How many different countries are represented in the data? Provide the total number and their names. Since each data set includes different numbers of countries, you will need to do this for each one.
 ```{r}
@@ -88,6 +109,11 @@ income_tidy %>%
 life_expectancy_tidy %>%
   summarise(n_countries = n_distinct(country))
 ```
+
+<style>
+div.blue { background-color:#e6f0ff; border-radius: 5px; padding: 20px;}
+</style>
+<div class = "blue">
 
 ## Life Expectancy  
 
@@ -115,6 +141,7 @@ life_expectancy_tidy %>%
 
 #mozambique has the lowest life expectancy.
 ```
+</div>
 
 4. (3 points) Although we can see which country has the highest life expectancy for the past 100 years, we don't know which countries have changed the most. What are the top 5 countries that have experienced the biggest improvement in life expectancy between 1920-2020?
 ```{r}
@@ -130,6 +157,12 @@ life_expectancy_tidy %>%
 
 #quatar, luxembourg, singapore, brunei, ireland. 
 ```
+<style>
+div.blue { background-color:#e6f0ff; border-radius: 5px; padding: 20px;}
+</style>
+<div class = "blue">
+
+# You need to make adjustments to the aesthetics here as the x axis is not legible.
 
 5. (3 points) Make a plot that shows the change over the past 100 years for the country with the biggest improvement in life expectancy. Be sure to add appropriate aesthetics to make the plot clean and clear. Once you have made the plot, do a little internet searching and see if you can discover what historical event may have contributed to this remarkable change.  
 
@@ -140,6 +173,8 @@ life_expectancy_tidy %>%
   ggplot(aes(x = year, y = life_expectancy)) +
   geom_col() #this change in life expectancy may be due to world war I. 
 ```
+
+</div>
 
 ## Population Growth
 6. (3 points) Which 5 countries have had the highest population growth over the past 100 years (1920-2020)?
@@ -228,3 +263,5 @@ gapminder_join %>%
   
 
 ```
+
+# Hi Jayashri, It seems that many of the analyses your performed were based on incorrectly importing the data. I fixed this for you, but it didn't correct all of the issues. Also, some of the aesthetics in your plots need some work as they are not legible. I like that you tried faceting, but some of the figures were hard to read. I am happy to help if you have questions. Dr. L
